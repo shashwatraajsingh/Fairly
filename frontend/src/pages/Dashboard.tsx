@@ -24,10 +24,10 @@ const Dashboard: React.FC = () => {
             {
               id: '1',
               name: 'Weekend Trip',
-              description: 'Goa trip expenses',
+              description: 'Delhi trip expenses',
               members: [
-                { userId: '1', name: 'John Doe', email: 'john@example.com', joinedAt: new Date(), role: 'admin' },
-                { userId: '2', name: 'Jane Smith', email: 'jane@example.com', joinedAt: new Date(), role: 'member' }
+                { userId: '1', name: 'Shashwat Singh', email: 'Shashwat@example.com', joinedAt: new Date(), role: 'admin' },
+                { userId: '2', name: 'Abhyuday Pratap Singh', email: 'abhyuday@example.com', joinedAt: new Date(), role: 'member' }
               ],
               createdBy: '1',
               createdAt: new Date(),
@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
           setBalances([
             {
               userId: '2',
-              userName: 'Jane Smith',
+              userName: 'Shashwat Singh',
               youOwe: 500,
               owesYou: 300,
               netBalance: -200

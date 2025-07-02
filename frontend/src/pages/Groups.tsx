@@ -35,12 +35,12 @@ const Groups: React.FC = () => {
         const mockGroups: Group[] = [
           {
             id: '1',
-            name: 'Weekend Trip to Goa',
-            description: 'Beach vacation expenses',
+            name: 'Weekend Trip to Delhi',
+            description: 'CP vacation expenses',
             members: [
               { userId: '1', name: 'You', email: 'you@example.com', joinedAt: new Date(), role: 'admin' },
-              { userId: '2', name: 'John Doe', email: 'john@example.com', joinedAt: new Date(), role: 'member' },
-              { userId: '3', name: 'Jane Smith', email: 'jane@example.com', joinedAt: new Date(), role: 'member' }
+              { userId: '2', name: 'Anubhav Singh', email: 'anubhav@example.com', joinedAt: new Date(), role: 'member' },
+              { userId: '3', name: 'Abhyuday Pratap Singh', email: 'abhyuday@example.com', joinedAt: new Date(), role: 'member' }
             ],
             createdBy: '1',
             createdAt: new Date('2024-12-01'),
@@ -52,8 +52,8 @@ const Groups: React.FC = () => {
             description: 'Daily lunch expenses with colleagues',
             members: [
               { userId: '1', name: 'You', email: 'you@example.com', joinedAt: new Date(), role: 'admin' },
-              { userId: '4', name: 'Mike Johnson', email: 'mike@example.com', joinedAt: new Date(), role: 'member' },
-              { userId: '5', name: 'Sarah Wilson', email: 'sarah@example.com', joinedAt: new Date(), role: 'member' }
+              { userId: '4', name: 'Anubhav', email: 'anubhav@example.com', joinedAt: new Date(), role: 'member' },
+              { userId: '5', name: 'Abhyuday', email: 'abhyuday@example.com', joinedAt: new Date(), role: 'member' }
             ],
             createdBy: '1',
             createdAt: new Date('2024-11-15'),
@@ -65,8 +65,8 @@ const Groups: React.FC = () => {
             description: 'Monthly utility bills',
             members: [
               { userId: '1', name: 'You', email: 'you@example.com', joinedAt: new Date(), role: 'member' },
-              { userId: '6', name: 'Alex Brown', email: 'alex@example.com', joinedAt: new Date(), role: 'admin' },
-              { userId: '7', name: 'Emma Davis', email: 'emma@example.com', joinedAt: new Date(), role: 'member' }
+              { userId: '6', name: 'abhishek', email: 'abhishek@example.com', joinedAt: new Date(), role: 'admin' },
+              { userId: '7', name: 'anubhav', email: 'anubhav@example.com', joinedAt: new Date(), role: 'member' }
             ],
             createdBy: '6',
             createdAt: new Date('2024-10-01'),

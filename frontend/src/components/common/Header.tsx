@@ -16,7 +16,7 @@ const Header: React.FC = () => {
               <Menu className="w-6 h-6" />
             </button>
             <div className="flex-shrink-0 flex items-center ml-4 lg:ml-0">
-              <h1 className="text-xl font-bold text-indigo-600">Splitwise</h1>
+              <h1 className="text-xl font-bold text-indigo-600">Fairly</h1>
             </div>
           </div>
 
