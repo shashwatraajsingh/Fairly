@@ -130,7 +130,7 @@ export const googleAuth = async (req: Request, res: Response): Promise<void> => 
         // Create new user
         user = new User({
           email,
-          name: name || 'Google User',
+          name: name || 'SINGH',
           firebaseUid: uid,
           authProvider: 'google',
           avatar: picture,

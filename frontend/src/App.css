@@ -76,6 +76,25 @@ h1, h2, h3, h4, h5, h6, p, span, div, label, input, button {
   height: 8px;
 }
 
+/* Ensure proper spacing for fixed header */
+.main-content {
+  padding-top: 3.5rem; /* 56px - matches h-14 */
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3.5rem;
+}
+
+/* Better mobile spacing */
+@media (max-width: 1024px) {
+  .main-content {
+    padding-top: 3.5rem;
+  }
+}
+
+
 ::-webkit-scrollbar-track {
   background: var(--gray-100);
   border-radius: 4px;

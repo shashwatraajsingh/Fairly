@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <div className="flex">
+      <div className="flex pt-14"> {/* Add top padding to account for fixed header */}
         <Sidebar />
         <main className="flex-1 lg:ml-64">
           <div className="py-6">
@@ -22,5 +22,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     </div>
   );
 };
+
 
 export default Layout;

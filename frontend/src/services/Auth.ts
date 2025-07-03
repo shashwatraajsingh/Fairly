@@ -35,7 +35,7 @@ class AuthService {
           resolve({
             id: '1',
             email: 'user@gmail.com',
-            name: 'Google User',
+            name: 'SINGH',
             createdAt: new Date()
           });
         }, 1000);
