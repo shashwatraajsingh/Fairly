@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import admin from 'firebase-admin';
 import { validationResult } from 'express-validator';
 import User from '../models/User';
-import { AuthRequest } from '../middleware/auth';
+import { AuthRequest } from '../middlewares/auth';
 
 // Generate JWT token
 const generateToken = (userId: string): string => {
