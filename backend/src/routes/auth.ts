@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { body } from 'express-validator';
 import { register, login, googleAuth, phoneAuth, getMe, logout } from '../controllers/authController';
 import { authenticateToken } from '../middlewares/auth';
+import { handleValidationErrors } from '../middlewares/validation';
 
 const router = Router();
 
