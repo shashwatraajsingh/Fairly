@@ -145,7 +145,7 @@ export default function SettleUpModal({
               <option value="">Select member</option>
               {members.map((member) => (
                 <option key={member.userId} value={member.userId}>
-                  {member.user.name || member.user.email}
+                  {member.user.name ?? member.user.email}
                 </option>
               ))}
             </select>
@@ -165,7 +165,7 @@ export default function SettleUpModal({
               <option value="">Select member</option>
               {members.map((member) => (
                 <option key={member.userId} value={member.userId}>
-                  {member.user.name || member.user.email}
+                  {member.user.name ?? member.user.email}
                 </option>
               ))}
             </select>

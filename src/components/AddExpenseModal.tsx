@@ -161,7 +161,7 @@ export default function AddExpenseModal({
               <option value="">Select member</option>
               {members.map((member) => (
                 <option key={member.userId} value={member.userId}>
-                  {member.user.name || member.user.email}
+                  {member.user.name ?? member.user.email}
                 </option>
               ))}
             </select>
@@ -190,7 +190,7 @@ export default function AddExpenseModal({
                     className="rounded text-primary-600"
                     disabled={selectedMembers.length === 0}
                   />
-                  <span className="text-sm">{member.user.name || member.user.email}</span>
+                  <span className="text-sm">{member.user.name ?? member.user.email}</span>
                 </label>
               ))}
             </div>

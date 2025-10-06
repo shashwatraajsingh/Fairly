@@ -1,11 +1,9 @@
 import { type GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
 import { useState } from "react";
 import { authOptions } from "~/server/auth";
 import { api } from "~/utils/api";
-import toast from "react-hot-toast";
 import CreateGroupModal from "~/components/CreateGroupModal";
 import { useRouter } from "next/router";
 

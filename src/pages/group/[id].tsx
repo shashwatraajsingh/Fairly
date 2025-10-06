@@ -8,7 +8,6 @@ import Link from "next/link";
 import AddExpenseModal from "~/components/AddExpenseModal";
 import AddMemberModal from "~/components/AddMemberModal";
 import SettleUpModal from "~/components/SettleUpModal";
-import toast from "react-hot-toast";
 
 export default function GroupDetail() {
   const router = useRouter();
