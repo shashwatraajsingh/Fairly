@@ -43,19 +43,28 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-butter/20 to-teal/10 px-4">
       <div className="max-w-md w-full">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-primary-600 mb-2">Fairly</h1>
-          <p className="text-gray-600">Split expenses fairly with friends</p>
+        {/* Logo and Header */}
+        <div className="text-center mb-8 animate-fade-in">
+          <div className="inline-block mb-4">
+            <div className="w-20 h-20 bg-gradient-to-br from-teal to-teal-dark rounded-3xl shadow-xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-300">
+              <span className="text-4xl">💰</span>
+            </div>
+          </div>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-teal to-charcoal bg-clip-text text-transparent mb-3">
+            Fairly
+          </h1>
+          <p className="text-charcoal/70 text-lg">Split expenses fairly with friends</p>
         </div>
 
-        <div className="card p-8">
-          <h2 className="text-2xl font-semibold mb-6 text-center">Sign In</h2>
+        {/* Sign In Card */}
+        <div className="card p-8 animate-slide-up">
+          <h2 className="text-2xl font-bold mb-6 text-center text-charcoal">Welcome Back</h2>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="block text-sm font-semibold text-charcoal mb-2">
                 Name
               </label>
               <input
@@ -64,13 +73,13 @@ export default function SignIn() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="input"
-                placeholder="Your name"
+                placeholder="Enter your name"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-semibold text-charcoal mb-2">
                 Email
               </label>
               <input
@@ -87,16 +96,26 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={isLoading}
-              className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-primary w-full text-lg py-3 disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
-              {isLoading ? "Signing in..." : "Sign In"}
+              {isLoading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Signing in...
+                </span>
+              ) : "Sign In"}
             </button>
           </form>
 
-          <p className="mt-6 text-xs text-gray-500 text-center">
-            For demo purposes, we use a simplified authentication system.
-            In production, you would integrate OAuth providers.
-          </p>
+          <div className="mt-6 pt-6 border-t border-charcoal/10">
+            <p className="text-xs text-charcoal/60 text-center leading-relaxed">
+              🔒 Demo authentication for testing purposes.<br/>
+              Production apps should use OAuth providers.
+            </p>
+          </div>
         </div>
       </div>
     </div>

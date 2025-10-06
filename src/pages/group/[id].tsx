@@ -40,19 +40,27 @@ export default function GroupDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <div className="relative">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-butter border-t-teal"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-2xl">💰</span>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (!group) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-cream flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-2">Group not found</h2>
-          <Link href="/" className="text-primary-600 hover:underline">
-            Go back home
+          <div className="w-20 h-20 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-4">
+            <span className="text-4xl">❓</span>
+          </div>
+          <h2 className="text-2xl font-bold text-charcoal mb-2">Group not found</h2>
+          <Link href="/" className="text-teal hover:text-teal-dark font-medium">
+            ← Go back home
           </Link>
         </div>
       </div>
@@ -60,34 +68,52 @@ export default function GroupDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <header className="bg-white/80 backdrop-blur-md border-b border-charcoal/10 sticky top-0 z-10 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="text-gray-600 hover:text-gray-900">
-                ← Back
+            <div className="flex items-center gap-4">
+              <Link href="/" className="flex items-center gap-2 text-charcoal/70 hover:text-teal transition-colors font-medium">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back
               </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">{group.name}</h1>
-                {group.description && (
-                  <p className="text-sm text-gray-600">{group.description}</p>
-                )}
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-butter to-yellow-200 rounded-2xl shadow-lg flex items-center justify-center">
+                  <span className="text-2xl">👥</span>
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-charcoal">{group.name}</h1>
+                  {group.description && (
+                    <p className="text-sm text-charcoal/60">{group.description}</p>
+                  )}
+                </div>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsAddMemberOpen(true)}
-                className="btn-secondary text-sm"
+                className="btn-secondary text-sm px-4 py-2"
               >
-                + Add Member
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                  </svg>
+                  Add Member
+                </span>
               </button>
               <button
                 onClick={() => setIsAddExpenseOpen(true)}
-                className="btn-primary text-sm"
+                className="btn-primary text-sm px-4 py-2"
               >
-                + Add Expense
+                <span className="flex items-center gap-1.5">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                  Add Expense
+                </span>
               </button>
             </div>
           </div>
@@ -95,38 +121,44 @@ export default function GroupDetail() {
       </header>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white/50 backdrop-blur-sm border-b border-charcoal/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
+          <div className="flex gap-2">
             <button
               onClick={() => setActiveTab("expenses")}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
+              className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "expenses"
-                  ? "border-primary-600 text-primary-600"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
+                  ? "bg-teal text-white shadow-lg"
+                  : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
-              Expenses
+              <span className="flex items-center gap-2">
+                💵 Expenses
+              </span>
             </button>
             <button
               onClick={() => setActiveTab("balances")}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
+              className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "balances"
-                  ? "border-primary-600 text-primary-600"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
+                  ? "bg-teal text-white shadow-lg"
+                  : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
-              Balances
+              <span className="flex items-center gap-2">
+                ⚖️ Balances
+              </span>
             </button>
             <button
               onClick={() => setActiveTab("settlements")}
-              className={`py-4 px-1 border-b-2 font-medium text-sm ${
+              className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "settlements"
-                  ? "border-primary-600 text-primary-600"
-                  : "border-transparent text-gray-600 hover:text-gray-900"
+                  ? "bg-teal text-white shadow-lg"
+                  : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
-              Settlements
+              <span className="flex items-center gap-2">
+                ✅ Settlements
+              </span>
             </button>
           </div>
         </div>
@@ -138,29 +170,28 @@ export default function GroupDetail() {
           <div className="space-y-4">
             {group.expenses.length > 0 ? (
               group.expenses.map((expense) => (
-                <div key={expense.id} className="card p-4">
+                <div key={expense.id} className="card p-6 hover:shadow-xl transition-shadow">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
-                          <span className="text-lg">💰</span>
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-butter to-yellow-200 flex items-center justify-center shadow-md">
+                          <span className="text-xl">💵</span>
                         </div>
                         <div>
-                          <h3 className="font-semibold">{expense.description}</h3>
-                          <p className="text-sm text-gray-600">
-                            Paid by {expense.createdBy.name} on{" "}
-                            {new Date(expense.date).toLocaleDateString()}
+                          <h3 className="font-bold text-lg text-charcoal">{expense.description}</h3>
+                          <p className="text-sm text-charcoal/60 mt-1">
+                            Paid by <span className="font-medium text-teal">{expense.createdBy.name}</span> • {new Date(expense.date).toLocaleDateString()}
                           </p>
                         </div>
                       </div>
                       {expense.notes && (
-                        <p className="text-sm text-gray-600 mt-2 ml-13">{expense.notes}</p>
+                        <p className="text-sm text-charcoal/70 mt-3 ml-16 bg-cream/50 p-3 rounded-lg">{expense.notes}</p>
                       )}
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold">${expense.amount.toFixed(2)}</p>
+                      <p className="text-2xl font-bold text-teal">${expense.amount.toFixed(2)}</p>
                       {expense.category && (
-                        <span className="inline-block px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded mt-1">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold bg-butter text-charcoal rounded-full mt-2">
                           {expense.category}
                         </span>
                       )}
@@ -169,9 +200,13 @@ export default function GroupDetail() {
                 </div>
               ))
             ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-600 mb-4">No expenses yet</p>
-                <button onClick={() => setIsAddExpenseOpen(true)} className="btn-primary">
+              <div className="text-center py-20">
+                <div className="w-24 h-24 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
+                  <span className="text-5xl">💸</span>
+                </div>
+                <h3 className="text-2xl font-bold text-charcoal mb-3">No expenses yet</h3>
+                <p className="text-charcoal/60 mb-6">Start tracking by adding your first expense</p>
+                <button onClick={() => setIsAddExpenseOpen(true)} className="btn-primary px-8 py-3 text-lg">
                   Add First Expense
                 </button>
               </div>
@@ -180,22 +215,29 @@ export default function GroupDetail() {
         )}
 
         {activeTab === "balances" && (
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Individual Balances */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Individual Balances</h3>
-              <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-charcoal mb-4 flex items-center gap-2">
+                <span>⚖️</span> Individual Balances
+              </h3>
+              <div className="space-y-3">
                 {balances && balances.length > 0 ? (
                   balances.map((balance) => (
-                    <div key={balance.userId} className="card p-4 flex items-center justify-between">
-                      <span className="font-medium">{balance.userName}</span>
+                    <div key={balance.userId} className="card p-5 flex items-center justify-between hover:shadow-xl transition-shadow">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold shadow-md">
+                          {balance.userName[0]?.toUpperCase()}
+                        </div>
+                        <span className="font-semibold text-charcoal">{balance.userName}</span>
+                      </div>
                       <span
-                        className={`font-semibold ${
+                        className={`text-xl font-bold px-4 py-2 rounded-xl ${
                           balance.amount > 0
-                            ? "text-green-600"
+                            ? "bg-green-100 text-green-700"
                             : balance.amount < 0
-                            ? "text-red-600"
-                            : "text-gray-600"
+                            ? "bg-red-100 text-red-700"
+                            : "bg-gray-100 text-gray-600"
                         }`}
                       >
                         {balance.amount > 0 ? "+" : ""}${Math.abs(balance.amount).toFixed(2)}
@@ -203,7 +245,10 @@ export default function GroupDetail() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-600 text-center py-4">All settled up! 🎉</p>
+                  <div className="text-center py-12 card">
+                    <span className="text-6xl mb-4 block">🎉</span>
+                    <p className="text-xl font-bold text-charcoal">All settled up!</p>
+                  </div>
                 )}
               </div>
             </div>
@@ -211,24 +256,29 @@ export default function GroupDetail() {
             {/* Simplified Debts */}
             {simplifiedDebts && simplifiedDebts.length > 0 && (
               <div>
-                <h3 className="text-lg font-semibold mb-4">Suggested Settlements</h3>
-                <div className="space-y-2">
+                <h3 className="text-2xl font-bold text-charcoal mb-4 flex items-center gap-2">
+                  <span>⚡</span> Suggested Settlements
+                </h3>
+                <div className="space-y-3">
                   {simplifiedDebts.map((debt, index) => (
-                    <div key={index} className="card p-4">
+                    <div key={index} className="card p-6 hover:shadow-xl transition-all group">
                       <div className="flex items-center justify-between">
-                        <div>
-                          <p className="font-medium">
-                            {debt.fromName} → {debt.toName}
-                          </p>
-                          <p className="text-sm text-gray-600">Simplified payment</p>
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-charcoal">{debt.fromName}</span>
+                            <svg className="w-5 h-5 text-teal group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                            <span className="font-bold text-charcoal">{debt.toName}</span>
+                          </div>
                         </div>
-                        <div className="text-right">
-                          <p className="text-lg font-semibold text-primary-600">
+                        <div className="flex items-center gap-4">
+                          <p className="text-2xl font-bold text-teal">
                             ${debt.amount.toFixed(2)}
                           </p>
                           <button
                             onClick={() => setIsSettleUpOpen(true)}
-                            className="text-sm text-primary-600 hover:underline"
+                            className="btn-primary px-4 py-2 text-sm"
                           >
                             Settle up
                           </button>
@@ -246,28 +296,37 @@ export default function GroupDetail() {
           <div className="space-y-4">
             {settlements && settlements.length > 0 ? (
               settlements.map((settlement) => (
-                <div key={settlement.id} className="card p-4">
+                <div key={settlement.id} className="card p-6 hover:shadow-xl transition-shadow">
                   <div className="flex items-center justify-between">
-                    <div>
-                      <p className="font-medium">
-                        {settlement.from.name} paid {settlement.to.name}
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        {new Date(settlement.settledAt).toLocaleDateString()}
-                      </p>
-                      {settlement.notes && (
-                        <p className="text-sm text-gray-600 mt-1">{settlement.notes}</p>
-                      )}
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-md">
+                        <span className="text-2xl">✅</span>
+                      </div>
+                      <div>
+                        <p className="font-bold text-lg text-charcoal">
+                          {settlement.from.name} <span className="text-teal">→</span> {settlement.to.name}
+                        </p>
+                        <p className="text-sm text-charcoal/60 mt-1">
+                          {new Date(settlement.settledAt).toLocaleDateString()}
+                        </p>
+                        {settlement.notes && (
+                          <p className="text-sm text-charcoal/70 mt-2 bg-cream/50 p-2 rounded-lg">{settlement.notes}</p>
+                        )}
+                      </div>
                     </div>
-                    <p className="text-lg font-semibold text-green-600">
+                    <p className="text-2xl font-bold text-green-600">
                       ${settlement.amount.toFixed(2)}
                     </p>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-600">No settlements yet</p>
+              <div className="text-center py-20">
+                <div className="w-24 h-24 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
+                  <span className="text-5xl">📝</span>
+                </div>
+                <h3 className="text-2xl font-bold text-charcoal mb-3">No settlements yet</h3>
+                <p className="text-charcoal/60">Settlements will appear here once recorded</p>
               </div>
             )}
           </div>

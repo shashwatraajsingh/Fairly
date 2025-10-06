@@ -9,17 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        cream: '#FAF8F1',
+        butter: '#FAEAB1',
+        teal: {
+          DEFAULT: '#34656D',
+          dark: '#2a5159',
+          light: '#4a7d87',
+        },
+        charcoal: {
+          DEFAULT: '#334443',
+          dark: '#2a3736',
+          light: '#4a5a58',
+        },
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#f0f9fa',
+          100: '#d9f0f2',
+          200: '#b3e1e5',
+          300: '#8dd2d8',
+          400: '#67c3cb',
+          500: '#34656D',
+          600: '#2a5159',
+          700: '#1f3d43',
+          800: '#15282c',
+          900: '#0a1416',
         },
       },
       animation: {

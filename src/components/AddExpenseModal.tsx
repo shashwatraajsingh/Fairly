@@ -109,13 +109,18 @@ export default function AddExpenseModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-      <div className="bg-white rounded-lg max-w-lg w-full p-6 my-8 animate-slide-up">
-        <h2 className="text-2xl font-semibold mb-4">Add Expense</h2>
+    <div className="fixed inset-0 bg-charcoal/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto animate-fade-in">
+      <div className="card max-w-lg w-full p-8 my-8 animate-slide-up">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 bg-gradient-to-br from-butter to-yellow-200 rounded-2xl flex items-center justify-center shadow-lg">
+            <span className="text-2xl">💵</span>
+          </div>
+          <h2 className="text-2xl font-bold text-charcoal">Add Expense</h2>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="description" className="block text-sm font-semibold text-charcoal mb-2">
               Description *
             </label>
             <input
@@ -124,31 +129,53 @@ export default function AddExpenseModal({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="input"
-              placeholder="e.g., Dinner at restaurant"
+              placeholder="e.g., Dinner at restaurant, Movie tickets"
               maxLength={200}
               required
             />
           </div>
 
-          <div>
-            <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
-              Amount ($) *
-            </label>
-            <input
-              id="amount"
-              type="number"
-              step="0.01"
-              min="0.01"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="input"
-              placeholder="0.00"
-              required
-            />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="amount" className="block text-sm font-semibold text-charcoal mb-2">
+                Amount ($) *
+              </label>
+              <input
+                id="amount"
+                type="number"
+                step="0.01"
+                min="0.01"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="input"
+                placeholder="0.00"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="category" className="block text-sm font-semibold text-charcoal mb-2">
+                Category
+              </label>
+              <select
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="input"
+              >
+                <option value="">Select</option>
+                <option value="Food">🍔 Food</option>
+                <option value="Transport">🚗 Transport</option>
+                <option value="Accommodation">🏠 Accommodation</option>
+                <option value="Entertainment">🎬 Entertainment</option>
+                <option value="Shopping">🛍️ Shopping</option>
+                <option value="Other">📌 Other</option>
+              </select>
+            </div>
           </div>
 
           <div>
-            <label htmlFor="paidBy" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="paidBy" className="block text-sm font-semibold text-charcoal mb-2">
               Paid by *
             </label>
             <select
@@ -168,83 +195,71 @@ export default function AddExpenseModal({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-charcoal mb-2">
               Split between
             </label>
-            <div className="space-y-2 max-h-40 overflow-y-auto border border-gray-200 rounded-lg p-3">
-              <label className="flex items-center space-x-2 cursor-pointer">
+            <div className="space-y-2 max-h-40 overflow-y-auto border-2 border-charcoal/10 rounded-xl p-4 bg-cream/50">
+              <label className="flex items-center space-x-3 cursor-pointer p-2 hover:bg-white/50 rounded-lg transition-colors">
                 <input
                   type="checkbox"
                   checked={selectedMembers.length === 0}
                   onChange={() => setSelectedMembers([])}
-                  className="rounded text-primary-600"
+                  className="w-4 h-4 rounded border-2 border-teal text-teal focus:ring-teal focus:ring-offset-0"
                 />
-                <span className="text-sm">All members (equal split)</span>
+                <span className="text-sm font-medium text-charcoal">All members (equal split)</span>
               </label>
               {members.map((member) => (
-                <label key={member.userId} className="flex items-center space-x-2 cursor-pointer">
+                <label key={member.userId} className="flex items-center space-x-3 cursor-pointer p-2 hover:bg-white/50 rounded-lg transition-colors">
                   <input
                     type="checkbox"
                     checked={selectedMembers.includes(member.userId) || selectedMembers.length === 0}
                     onChange={() => toggleMember(member.userId)}
-                    className="rounded text-primary-600"
+                    className="w-4 h-4 rounded border-2 border-teal text-teal focus:ring-teal focus:ring-offset-0"
                     disabled={selectedMembers.length === 0}
                   />
-                  <span className="text-sm">{member.user.name ?? member.user.email}</span>
+                  <span className="text-sm text-charcoal">{member.user.name ?? member.user.email}</span>
                 </label>
               ))}
             </div>
           </div>
 
           <div>
-            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
-              Category (optional)
-            </label>
-            <select
-              id="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="input"
-            >
-              <option value="">Select category</option>
-              <option value="Food">Food</option>
-              <option value="Transport">Transport</option>
-              <option value="Accommodation">Accommodation</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="notes" className="block text-sm font-semibold text-charcoal mb-2">
               Notes (optional)
             </label>
             <textarea
               id="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="input"
+              className="input resize-none"
               placeholder="Any additional details..."
               rows={2}
             />
           </div>
 
-          <div className="flex space-x-3 pt-4">
+          <div className="flex gap-3 pt-4">
             <button
               type="button"
               onClick={handleClose}
-              className="btn-secondary flex-1"
+              className="btn-secondary flex-1 py-3"
               disabled={createExpense.isLoading}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="btn-primary flex-1"
+              className="btn-primary flex-1 py-3"
               disabled={createExpense.isLoading}
             >
-              {createExpense.isLoading ? "Adding..." : "Add Expense"}
+              {createExpense.isLoading ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Adding...
+                </span>
+              ) : "Add Expense"}
             </button>
           </div>
         </form>

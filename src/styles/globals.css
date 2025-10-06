@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-cream text-charcoal;
   }
 }
 
@@ -18,27 +18,27 @@
   }
 
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply btn bg-teal text-white hover:bg-teal-dark focus:ring-teal shadow-sm;
   }
 
   .btn-secondary {
-    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
+    @apply btn bg-butter text-charcoal hover:bg-yellow-200 focus:ring-butter shadow-sm;
   }
 
   .btn-danger {
-    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+    @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 shadow-sm;
   }
 
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-2 border-2 border-charcoal/20 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal transition-all;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+    @apply bg-white rounded-2xl shadow-lg border border-charcoal/10 backdrop-blur-sm;
   }
 
   .card-hover {
-    @apply card transition-shadow duration-200 hover:shadow-md cursor-pointer;
+    @apply card transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer;
   }
 }
 
