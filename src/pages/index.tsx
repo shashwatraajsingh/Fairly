@@ -25,17 +25,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-teal to-teal-dark rounded-2xl shadow-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-taupe to-taupe-dark rounded-2xl shadow-lg flex items-center justify-center">
                 <span className="text-2xl">💰</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-teal to-charcoal bg-clip-text text-transparent">Fairly</h1>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-taupe to-charcoal bg-clip-text text-transparent">Fairly</h1>
                 <p className="text-sm text-charcoal/60">Hey, {session?.user?.name}! 👋</p>
               </div>
             </div>
             <button
               onClick={() => void signOut()}
-              className="px-4 py-2 text-sm font-medium text-charcoal/70 hover:text-charcoal hover:bg-butter/30 rounded-xl transition-all"
+              className="px-4 py-2 text-sm font-medium text-charcoal/70 hover:text-charcoal hover:bg-beige/30 rounded-xl transition-all"
             >
               Sign Out
             </button>
@@ -67,7 +67,7 @@ export default function Home() {
           {isLoading ? (
             <div className="flex justify-center py-20">
               <div className="relative">
-                <div className="animate-spin rounded-full h-16 w-16 border-4 border-butter border-t-teal"></div>
+                <div className="animate-spin rounded-full h-16 w-16 border-4 border-beige border-t-taupe"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-2xl">💰</span>
                 </div>
@@ -83,12 +83,12 @@ export default function Home() {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <h3 className="font-bold text-xl text-charcoal group-hover:text-teal transition-colors">{group.name}</h3>
+                      <h3 className="font-bold text-xl text-charcoal group-hover:text-taupe transition-colors">{group.name}</h3>
                       {group.description && (
                         <p className="text-sm text-charcoal/60 mt-2 line-clamp-2">{group.description}</p>
                       )}
                     </div>
-                    <div className="w-10 h-10 bg-gradient-to-br from-butter to-yellow-200 rounded-xl flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 bg-gradient-to-br from-beige to-taupe-light rounded-xl flex items-center justify-center shadow-sm">
                       <span className="text-xl">👥</span>
                     </div>
                   </div>
@@ -113,7 +113,7 @@ export default function Home() {
                       {group.members.slice(0, 4).map((member) => (
                         <div
                           key={member.id}
-                          className="w-9 h-9 rounded-full bg-gradient-to-br from-teal to-teal-dark border-2 border-white flex items-center justify-center text-xs font-bold text-white shadow-md"
+                          className="w-9 h-9 rounded-full bg-gradient-to-br from-taupe to-taupe-dark border-2 border-white flex items-center justify-center text-xs font-bold text-white shadow-md"
                           title={member.user.name ?? "Unknown"}
                         >
                           {member.user.name?.[0]?.toUpperCase() ?? "?"}
@@ -126,7 +126,7 @@ export default function Home() {
                       )}
                     </div>
                     <div className="flex-1"></div>
-                    <svg className="w-5 h-5 text-teal group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-taupe group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -136,7 +136,7 @@ export default function Home() {
           ) : (
             <div className="text-center py-20">
               <div className="inline-block mb-6">
-                <div className="w-24 h-24 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center">
+                <div className="w-24 h-24 bg-gradient-to-br from-beige to-taupe-light rounded-3xl shadow-xl flex items-center justify-center">
                   <span className="text-5xl">📊</span>
                 </div>
               </div>

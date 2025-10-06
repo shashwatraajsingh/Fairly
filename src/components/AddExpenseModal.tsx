@@ -112,7 +112,7 @@ export default function AddExpenseModal({
     <div className="fixed inset-0 bg-charcoal/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto animate-fade-in">
       <div className="card max-w-lg w-full p-8 my-8 animate-slide-up">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 bg-gradient-to-br from-butter to-yellow-200 rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="w-12 h-12 bg-gradient-to-br from-beige to-taupe-light rounded-2xl flex items-center justify-center shadow-lg">
             <span className="text-2xl">💵</span>
           </div>
           <h2 className="text-2xl font-bold text-charcoal">Add Expense</h2>
@@ -204,7 +204,7 @@ export default function AddExpenseModal({
                   type="checkbox"
                   checked={selectedMembers.length === 0}
                   onChange={() => setSelectedMembers([])}
-                  className="w-4 h-4 rounded border-2 border-teal text-teal focus:ring-teal focus:ring-offset-0"
+                  className="w-4 h-4 rounded border-2 border-taupe text-taupe focus:ring-taupe focus:ring-offset-0"
                 />
                 <span className="text-sm font-medium text-charcoal">All members (equal split)</span>
               </label>
@@ -214,7 +214,7 @@ export default function AddExpenseModal({
                     type="checkbox"
                     checked={selectedMembers.includes(member.userId) || selectedMembers.length === 0}
                     onChange={() => toggleMember(member.userId)}
-                    className="w-4 h-4 rounded border-2 border-teal text-teal focus:ring-teal focus:ring-offset-0"
+                    className="w-4 h-4 rounded border-2 border-taupe text-taupe focus:ring-taupe focus:ring-offset-0"
                     disabled={selectedMembers.length === 0}
                   />
                   <span className="text-sm text-charcoal">{member.user.name ?? member.user.email}</span>

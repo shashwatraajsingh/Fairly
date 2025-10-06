@@ -39,7 +39,7 @@ export default function AddMemberModal({ isOpen, onClose, groupId }: AddMemberMo
     <div className="fixed inset-0 bg-charcoal/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in">
       <div className="card max-w-md w-full p-8 animate-slide-up">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 bg-gradient-to-br from-teal to-teal-dark rounded-2xl flex items-center justify-center shadow-lg">
+          <div className="w-12 h-12 bg-gradient-to-br from-taupe to-taupe-dark rounded-2xl flex items-center justify-center shadow-lg">
             <span className="text-2xl">➕</span>
           </div>
           <h2 className="text-2xl font-bold text-charcoal">Add Member</h2>

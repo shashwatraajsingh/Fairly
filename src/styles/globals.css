@@ -18,11 +18,11 @@
   }
 
   .btn-primary {
-    @apply btn bg-teal text-white hover:bg-teal-dark focus:ring-teal shadow-sm;
+    @apply btn bg-charcoal text-white hover:bg-charcoal-light focus:ring-charcoal shadow-sm;
   }
 
   .btn-secondary {
-    @apply btn bg-butter text-charcoal hover:bg-yellow-200 focus:ring-butter shadow-sm;
+    @apply btn bg-beige text-charcoal hover:bg-taupe-light focus:ring-beige shadow-sm;
   }
 
   .btn-danger {
@@ -30,7 +30,7 @@
   }
 
   .input {
-    @apply w-full px-4 py-2 border-2 border-charcoal/20 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-teal focus:border-teal transition-all;
+    @apply w-full px-4 py-2 border-2 border-charcoal/20 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-taupe focus:border-taupe transition-all;
   }
 
   .card {

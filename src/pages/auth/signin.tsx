@@ -43,16 +43,16 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-butter/20 to-teal/10 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-beige to-taupe/10 px-4">
       <div className="max-w-md w-full">
         {/* Logo and Header */}
         <div className="text-center mb-8 animate-fade-in">
           <div className="inline-block mb-4">
-            <div className="w-20 h-20 bg-gradient-to-br from-teal to-teal-dark rounded-3xl shadow-xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-300">
-              <span className="text-4xl">💰</span>
-            </div>
+            {/* <div className="w-20 h-20 bg-gradient-to-br from-taupe to-taupe-dark rounded-3xl shadow-xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-300">
+              <span className="text-4xl"></span>
+            </div> */}
           </div>
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-teal to-charcoal bg-clip-text text-transparent mb-3">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-taupe to-charcoal bg-clip-text text-transparent mb-3">
             Fairly
           </h1>
           <p className="text-charcoal/70 text-lg">Split expenses fairly with friends</p>
@@ -112,8 +112,8 @@ export default function SignIn() {
 
           <div className="mt-6 pt-6 border-t border-charcoal/10">
             <p className="text-xs text-charcoal/60 text-center leading-relaxed">
-              🔒 Demo authentication for testing purposes.<br/>
-              Production apps should use OAuth providers.
+               Demo authentication for testing purposes.<br/>
+              
             </p>
           </div>
         </div>

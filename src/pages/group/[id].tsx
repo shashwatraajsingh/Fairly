@@ -42,7 +42,7 @@ export default function GroupDetail() {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <div className="relative">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-butter border-t-teal"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-beige border-t-taupe"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl">💰</span>
           </div>
@@ -55,11 +55,11 @@ export default function GroupDetail() {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <div className="text-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 bg-gradient-to-br from-beige to-taupe-light rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-4">
             <span className="text-4xl">❓</span>
           </div>
           <h2 className="text-2xl font-bold text-charcoal mb-2">Group not found</h2>
-          <Link href="/" className="text-teal hover:text-teal-dark font-medium">
+          <Link href="/" className="text-taupe hover:text-taupe-dark font-medium">
             ← Go back home
           </Link>
         </div>
@@ -74,14 +74,14 @@ export default function GroupDetail() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <Link href="/" className="flex items-center gap-2 text-charcoal/70 hover:text-teal transition-colors font-medium">
+              <Link href="/" className="flex items-center gap-2 text-charcoal/70 hover:text-taupe transition-colors font-medium">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
                 Back
               </Link>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-butter to-yellow-200 rounded-2xl shadow-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-beige to-taupe-light rounded-2xl shadow-lg flex items-center justify-center">
                   <span className="text-2xl">👥</span>
                 </div>
                 <div>
@@ -128,7 +128,7 @@ export default function GroupDetail() {
               onClick={() => setActiveTab("expenses")}
               className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "expenses"
-                  ? "bg-teal text-white shadow-lg"
+                  ? "bg-taupe text-white shadow-lg"
                   : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
@@ -140,7 +140,7 @@ export default function GroupDetail() {
               onClick={() => setActiveTab("balances")}
               className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "balances"
-                  ? "bg-teal text-white shadow-lg"
+                  ? "bg-taupe text-white shadow-lg"
                   : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
@@ -152,7 +152,7 @@ export default function GroupDetail() {
               onClick={() => setActiveTab("settlements")}
               className={`py-3 px-6 font-semibold text-sm rounded-t-xl transition-all ${
                 activeTab === "settlements"
-                  ? "bg-teal text-white shadow-lg"
+                  ? "bg-taupe text-white shadow-lg"
                   : "text-charcoal/60 hover:text-charcoal hover:bg-white/50"
               }`}
             >
@@ -174,13 +174,13 @@ export default function GroupDetail() {
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-butter to-yellow-200 flex items-center justify-center shadow-md">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-beige to-taupe-light flex items-center justify-center shadow-md">
                           <span className="text-xl">💵</span>
                         </div>
                         <div>
                           <h3 className="font-bold text-lg text-charcoal">{expense.description}</h3>
                           <p className="text-sm text-charcoal/60 mt-1">
-                            Paid by <span className="font-medium text-teal">{expense.createdBy.name}</span> • {new Date(expense.date).toLocaleDateString()}
+                            Paid by <span className="font-medium text-taupe">{expense.createdBy.name}</span> • {new Date(expense.date).toLocaleDateString()}
                           </p>
                         </div>
                       </div>
@@ -189,9 +189,9 @@ export default function GroupDetail() {
                       )}
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-teal">${expense.amount.toFixed(2)}</p>
+                      <p className="text-2xl font-bold text-taupe">${expense.amount.toFixed(2)}</p>
                       {expense.category && (
-                        <span className="inline-block px-3 py-1 text-xs font-semibold bg-butter text-charcoal rounded-full mt-2">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold bg-beige text-charcoal rounded-full mt-2">
                           {expense.category}
                         </span>
                       )}
@@ -201,7 +201,7 @@ export default function GroupDetail() {
               ))
             ) : (
               <div className="text-center py-20">
-                <div className="w-24 h-24 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-beige to-taupe-light rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-5xl">💸</span>
                 </div>
                 <h3 className="text-2xl font-bold text-charcoal mb-3">No expenses yet</h3>
@@ -224,24 +224,42 @@ export default function GroupDetail() {
               <div className="space-y-3">
                 {balances && balances.length > 0 ? (
                   balances.map((balance) => (
-                    <div key={balance.userId} className="card p-5 flex items-center justify-between hover:shadow-xl transition-shadow">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal to-teal-dark flex items-center justify-center text-white font-bold shadow-md">
-                          {balance.userName[0]?.toUpperCase()}
+                    <div key={balance.userId} className="card p-5 hover:shadow-xl transition-shadow">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-taupe to-taupe-dark flex items-center justify-center text-white font-bold shadow-md">
+                            {balance.userName[0]?.toUpperCase()}
+                          </div>
+                          <div>
+                            <span className="font-semibold text-charcoal block">{balance.userName}</span>
+                            {balance.amount === 0 ? (
+                              <span className="text-xs font-semibold text-green-600 flex items-center gap-1 mt-1">
+                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                Settled
+                              </span>
+                            ) : balance.amount > 0 ? (
+                              <span className="text-xs text-green-600 mt-1 block">Gets back</span>
+                            ) : (
+                              <span className="text-xs text-red-600 mt-1 block">Owes</span>
+                            )}
+                          </div>
                         </div>
-                        <span className="font-semibold text-charcoal">{balance.userName}</span>
+                        <div className="text-right">
+                          <span
+                            className={`text-xl font-bold px-4 py-2 rounded-xl inline-block ${
+                              balance.amount > 0
+                                ? "bg-green-100 text-green-700"
+                                : balance.amount < 0
+                                ? "bg-red-100 text-red-700"
+                                : "bg-green-100 text-green-700"
+                            }`}
+                          >
+                            {balance.amount === 0 ? "✓ $0.00" : `${balance.amount > 0 ? "+" : ""}$${Math.abs(balance.amount).toFixed(2)}`}
+                          </span>
+                        </div>
                       </div>
-                      <span
-                        className={`text-xl font-bold px-4 py-2 rounded-xl ${
-                          balance.amount > 0
-                            ? "bg-green-100 text-green-700"
-                            : balance.amount < 0
-                            ? "bg-red-100 text-red-700"
-                            : "bg-gray-100 text-gray-600"
-                        }`}
-                      >
-                        {balance.amount > 0 ? "+" : ""}${Math.abs(balance.amount).toFixed(2)}
-                      </span>
                     </div>
                   ))
                 ) : (
@@ -266,14 +284,14 @@ export default function GroupDetail() {
                         <div className="flex items-center gap-3">
                           <div className="flex items-center gap-2">
                             <span className="font-bold text-charcoal">{debt.fromName}</span>
-                            <svg className="w-5 h-5 text-teal group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-taupe group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                             <span className="font-bold text-charcoal">{debt.toName}</span>
                           </div>
                         </div>
                         <div className="flex items-center gap-4">
-                          <p className="text-2xl font-bold text-teal">
+                          <p className="text-2xl font-bold text-taupe">
                             ${debt.amount.toFixed(2)}
                           </p>
                           <button
@@ -304,7 +322,7 @@ export default function GroupDetail() {
                       </div>
                       <div>
                         <p className="font-bold text-lg text-charcoal">
-                          {settlement.from.name} <span className="text-teal">→</span> {settlement.to.name}
+                          {settlement.from.name} <span className="text-taupe">→</span> {settlement.to.name}
                         </p>
                         <p className="text-sm text-charcoal/60 mt-1">
                           {new Date(settlement.settledAt).toLocaleDateString()}
@@ -322,7 +340,7 @@ export default function GroupDetail() {
               ))
             ) : (
               <div className="text-center py-20">
-                <div className="w-24 h-24 bg-gradient-to-br from-butter to-yellow-200 rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-beige to-taupe-light rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-6">
                   <span className="text-5xl">📝</span>
                 </div>
                 <h3 className="text-2xl font-bold text-charcoal mb-3">No settlements yet</h3>
