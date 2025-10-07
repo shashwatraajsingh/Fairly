@@ -43,77 +43,90 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-cream via-beige to-taupe/10 px-4">
-      <div className="max-w-md w-full">
-        {/* Logo and Header */}
-        <div className="text-center mb-8 animate-fade-in">
-          <div className="inline-block mb-4">
-            {/* <div className="w-20 h-20 bg-gradient-to-br from-taupe to-taupe-dark rounded-3xl shadow-xl flex items-center justify-center transform hover:rotate-6 transition-transform duration-300">
-              <span className="text-4xl"></span>
-            </div> */}
+    <div className="min-h-screen bg-white">
+      <div className="flex min-h-screen">
+        {/* Left side - Branding */}
+        <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-teal to-teal-dark p-12 flex-col justify-between">
+          <div>
+            <h1 className="text-4xl font-bold text-white mb-2">Fairly</h1>
+            <p className="text-white/80 text-lg">Less stress when sharing expenses with friends</p>
           </div>
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-taupe to-charcoal bg-clip-text text-transparent mb-3">
-            Fairly
-          </h1>
-          <p className="text-charcoal/70 text-lg">Split expenses fairly with friends</p>
+          <div className="space-y-6">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Track group expenses</h3>
+                <p className="text-white/70 text-sm">Split bills with roommates, friends, and family</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold mb-1">Settle up easily</h3>
+                <p className="text-white/70 text-sm">Keep track of balances and settle debts</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Sign In Card */}
-        <div className="card p-8 animate-slide-up">
-          <h2 className="text-2xl font-bold mb-6 text-center text-charcoal">Welcome Back</h2>
-          
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-charcoal mb-2">
-                Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="input"
-                placeholder="Enter your name"
-                required
-              />
+        {/* Right side - Form */}
+        <div className="flex-1 flex items-center justify-center p-8">
+          <div className="w-full max-w-md">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-charcoal mb-2">Welcome back</h2>
+              <p className="text-charcoal/60">Sign in to continue to Fairly</p>
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-charcoal mb-2">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="input"
-                placeholder="your@email.com"
-                required
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1.5">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="btn-primary w-full text-lg py-3 disabled:opacity-50 disabled:cursor-not-allowed mt-6"
-            >
-              {isLoading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Signing in...
-                </span>
-              ) : "Sign In"}
-            </button>
-          </form>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1.5">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
 
-          <div className="mt-6 pt-6 border-t border-charcoal/10">
-            <p className="text-xs text-charcoal/60 text-center leading-relaxed">
-               Demo authentication for testing purposes.<br/>
-              
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-teal hover:bg-teal-dark text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              >
+                {isLoading ? "Signing in..." : "Sign in"}
+              </button>
+            </form>
+
+            <p className="mt-6 text-xs text-center text-charcoal/50">
+              Demo mode - No password required
             </p>
           </div>
         </div>

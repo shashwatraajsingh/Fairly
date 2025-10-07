@@ -93,20 +93,25 @@ export default function SettleUpModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-charcoal/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto animate-fade-in">
-      <div className="card max-w-lg w-full p-8 my-8 animate-slide-up">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-12 bg-gradient-to-br from-taupe to-taupe-dark rounded-2xl flex items-center justify-center shadow-lg">
-            <span className="text-2xl">✅</span>
-          </div>
-          <h2 className="text-2xl font-bold text-charcoal">Record Settlement</h2>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+      <div className="bg-white rounded-lg max-w-lg w-full p-6 my-8 shadow-xl">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-semibold text-charcoal">Settle up</h2>
+          <button
+            onClick={handleClose}
+            className="text-gray-400 hover:text-gray-600"
+            disabled={recordSettlement.isLoading}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
         {simplifiedDebts.length > 0 && (
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-charcoal mb-3 flex items-center gap-2">
-              <span className="text-lg">⚡</span>
-              Quick Settle
+            <h3 className="text-sm font-medium text-charcoal mb-3">
+              Suggested payments
             </h3>
             <div className="space-y-2">
               {simplifiedDebts.map((debt, index) => (
@@ -114,21 +119,15 @@ export default function SettleUpModal({
                   key={index}
                   type="button"
                   onClick={() => handleQuickSettle(debt)}
-                  className="w-full text-left p-4 border-2 border-charcoal/10 rounded-xl hover:border-taupe hover:bg-taupe/5 transition-all group"
+                  className="w-full text-left p-3 border border-gray-200 rounded-lg hover:border-teal hover:bg-teal-50 transition-all group"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-charcoal">
-                        {debt.fromName}
-                      </span>
-                      <svg className="w-4 h-4 text-taupe group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                      <span className="text-sm font-medium text-charcoal">
-                        {debt.toName}
+                        {debt.fromName} → {debt.toName}
                       </span>
                     </div>
-                    <span className="font-bold text-lg text-taupe">
+                    <span className="font-semibold text-teal">
                       ${debt.amount.toFixed(2)}
                     </span>
                   </div>
@@ -137,26 +136,26 @@ export default function SettleUpModal({
             </div>
             <div className="relative my-6">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t-2 border-charcoal/10"></div>
+                <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-3 bg-white text-charcoal/60 font-medium">or enter manually</span>
+                <span className="px-3 bg-white text-gray-500 text-xs">or enter manually</span>
               </div>
             </div>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="from" className="block text-sm font-semibold text-charcoal mb-2">
-                From (who paid) *
+              <label htmlFor="from" className="block text-sm font-medium text-charcoal mb-1.5">
+                From
               </label>
               <select
                 id="from"
                 value={fromId}
                 onChange={(e) => setFromId(e.target.value)}
-                className="input"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent"
                 required
               >
                 <option value="">Select member</option>
@@ -169,14 +168,14 @@ export default function SettleUpModal({
             </div>
 
             <div>
-              <label htmlFor="to" className="block text-sm font-semibold text-charcoal mb-2">
-                To (who received) *
+              <label htmlFor="to" className="block text-sm font-medium text-charcoal mb-1.5">
+                To
               </label>
               <select
                 id="to"
                 value={toId}
                 onChange={(e) => setToId(e.target.value)}
-                className="input"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent"
                 required
               >
                 <option value="">Select member</option>
@@ -190,8 +189,8 @@ export default function SettleUpModal({
           </div>
 
           <div>
-            <label htmlFor="amount" className="block text-sm font-semibold text-charcoal mb-2">
-              Amount ($) *
+            <label htmlFor="amount" className="block text-sm font-medium text-charcoal mb-1.5">
+              Amount ($)
             </label>
             <input
               id="amount"
@@ -200,49 +199,41 @@ export default function SettleUpModal({
               min="0.01"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="input"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent"
               placeholder="0.00"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="notes" className="block text-sm font-semibold text-charcoal mb-2">
+            <label htmlFor="notes" className="block text-sm font-medium text-charcoal mb-1.5">
               Notes (optional)
             </label>
             <textarea
               id="notes"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="input resize-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent resize-none"
               placeholder="Payment method, reference, etc."
               rows={2}
             />
           </div>
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex gap-3 pt-2">
             <button
               type="button"
               onClick={handleClose}
-              className="btn-secondary flex-1 py-3"
+              className="flex-1 px-4 py-2 border border-gray-300 text-charcoal rounded-lg hover:bg-gray-50 font-medium transition-colors"
               disabled={recordSettlement.isLoading}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="btn-primary flex-1 py-3"
+              className="flex-1 px-4 py-2 bg-teal hover:bg-teal-dark text-white rounded-lg font-medium transition-colors disabled:opacity-50"
               disabled={recordSettlement.isLoading}
             >
-              {recordSettlement.isLoading ? (
-                <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Recording...
-                </span>
-              ) : "Record Settlement"}
+              {recordSettlement.isLoading ? "Recording..." : "Save"}
             </button>
           </div>
         </form>
