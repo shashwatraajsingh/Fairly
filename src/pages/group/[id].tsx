@@ -40,9 +40,9 @@ export default function GroupDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="relative">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-beige border-t-teal"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-200 border-t-teal"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl">💰</span>
           </div>
@@ -53,11 +53,8 @@ export default function GroupDetail() {
 
   if (!group) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-beige to-taupe-light rounded-3xl shadow-xl flex items-center justify-center mx-auto mb-4">
-            <span className="text-4xl">❓</span>
-          </div>
           <h2 className="text-2xl font-bold text-charcoal mb-2">Group not found</h2>
           <Link href="/" className="text-teal hover:text-teal-dark font-medium">
             ← Go back home
@@ -68,7 +65,7 @@ export default function GroupDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 bg-pattern">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,6 +94,7 @@ export default function GroupDetail() {
               >
                 Add expense
               </button>
+            </div>
           </div>
         </div>
       </header>
@@ -193,7 +191,6 @@ export default function GroupDetail() {
 
         {activeTab === "balances" && (
           <div className="space-y-8">
-            {/* Individual Balances */}
             <div>
               <h3 className="text-lg font-semibold text-charcoal mb-4">Balances</h3>
               <div className="space-y-2">
@@ -245,7 +242,6 @@ export default function GroupDetail() {
               </div>
             </div>
 
-            {/* Simplified Debts */}
             {simplifiedDebts && simplifiedDebts.length > 0 && (
               <div>
                 <h3 className="text-lg font-semibold text-charcoal mb-4">Suggested payments</h3>

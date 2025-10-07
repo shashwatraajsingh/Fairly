@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Urbanist', 'sans-serif'],
+      },
       colors: {
         cream: '#F2F2F2',
         beige: '#EAE4D5',
